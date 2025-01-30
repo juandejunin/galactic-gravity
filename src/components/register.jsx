@@ -1,126 +1,77 @@
-// import React, { useState } from 'react';
-
-// function Formulario() {
-//   const [nombre, setNombre] = useState('');
-//   const [email, setEmail] = useState('');
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault(); // Evita que la página se recargue
-
-//     const data = { nombre, email }; // Objeto con los datos a enviar
-
-//     try {
-//       const response = await fetch('http://localhost:3000/api/users/register', { // Reemplaza con la URL real de tu API
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//       });
-
-//       if (!response.ok) {
-//         throw new Error('Error al enviar los datos');
-//       }
-
-//       const result = await response.json();
-//       alert(`Respuesta del servidor: ${JSON.stringify(result)}`);
-//     } catch (error) {
-//       console.error('Error:', error);
-//       alert('Hubo un problema al enviar los datos.');
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>React Formulario</h1>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Nombre:
-//           <input
-//             type="text"
-//             value={nombre}
-//             onChange={(e) => setNombre(e.target.value)}
-//           />
-//         </label>
-//         <br />
-//         <label>
-//           Email:
-//           <input
-//             type="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//         </label>
-//         <br />
-//         <button type="submit">Enviar</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Formulario;
-
-
 import React, { useState } from 'react';
 
 function Formulario() {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
-  const [enviado, setEnviado] = useState(false); // Estado para controlar si se envió correctamente
+  const [mensaje, setMensaje] = useState('');
+  const [error, setError] = useState(''); 
+  const [enviado, setEnviado] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const data = { nombre, email };
+    setError('');  
+    setMensaje(''); 
 
     try {
       const response = await fetch('http://localhost:3000/api/users/register', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, email }),
       });
 
-      if (!response.ok) {
-        throw new Error('Error al enviar los datos');
+      const data = await response.json();
+
+      if (response.ok) {
+        setMensaje(data.mensaje);
+        setEnviado(true);
+      } else {
+        setError(data.error || 'Ocurrió un error al enviar el formulario.');
       }
 
-      setEnviado(true); // Cambia el estado para mostrar el mensaje de éxito
+      setEnviado(true); 
     } catch (error) {
       console.error('Error:', error);
-      alert('Hubo un problema al enviar los datos.');
+
     }
   };
 
   return (
-    <div>
+     <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
       {enviado ? (
-        <h2>¡Formulario enviado con éxito!</h2> // Se muestra este mensaje cuando el estado 'enviado' es true
+        <div className="text-green-500 font-bold">{mensaje}</div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <h1>React Formulario</h1>
-          <label>
-            Nombre:
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <h1 className="text-2xl font-semibold text-center">Registro</h1>
+          <div>
+            <label htmlFor="nombre" className="block text-lg">Nombre:</label>
             <input
               type="text"
+              id="nombre"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               required
+              className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </label>
-          <br />
-          <label>
-            Email:
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-lg">Email:</label>
             <input
               type="email"
+              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </label>
-          <br />
-          <button type="submit">Enviar</button>
+          </div>
+          <button
+            type="submit"
+            className="w-full py-2 mt-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Enviar
+          </button>
+          {error && error !== '' && <div className="text-red-500 mt-2">{error}</div>}
+
         </form>
       )}
     </div>
