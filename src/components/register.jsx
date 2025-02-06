@@ -36,16 +36,16 @@ function Formulario() {
   };
 
   return (
-    <section  id="formulario" className="min-h-screen w-full flex items-center justify-center p-8 bg-primary">
-      <div  className=" w-full max-w-md mx-auto mt-10 p-8 bg-secondary shadow-lg rounded-lg">
+    <section id="formulario" className="min-h-screen w-full flex items-center justify-center p-8 bg-secondary">
+      <div className=" w-full max-w-md mx-auto mt-10 p-8 bg-primary shadow-lg rounded-lg">
 
         {enviado ? (
           <div className="text-green-500 font-bold">{mensaje}</div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            <h1 className="text-2xl text-gray-400 font-semibold text-center">Solicita tu guia</h1>
+            <h1 className="text-2xl text-gray-300 font-semibold text-center">Solicita tu guia</h1>
             <div>
-              <label htmlFor="nombre" className="block text-lg text-gray-400">Nombre:</label>
+              <label htmlFor="nombre" className="block text-lg text-gray-300">Nombre:</label>
               <input
                 type="text"
                 id="nombre"
@@ -56,7 +56,7 @@ function Formulario() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-lg text-gray-400">Email:</label>
+              <label htmlFor="email" className="block text-lg text-gray-300">Email:</label>
               <input
                 type="email"
                 id="email"
@@ -66,12 +66,16 @@ function Formulario() {
                 className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full py-2 mt-4 bg-light rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              Enviar
-            </button>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="w-1/2 py-2 mt-4 bg-light rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Enviar
+              </button>
+
+            </div>
+
             {error && error !== '' && <div className="text-red-500 mt-2">{error}</div>}
 
           </form>
