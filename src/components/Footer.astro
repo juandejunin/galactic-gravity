@@ -1,0 +1,46 @@
+---
+import TwitterIcon from "../icons/Twitter.astro";
+import FacebookIcon from "../icons/Facebook.astro";
+import InstagramIcon from "../icons/Instagram.astro";
+import TiktokIcon from "../icons/TikTok.astro";
+---
+
+<footer class="bg-primary text-gray-300 py-8 ">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      
+      <!-- 🔹 Sección 1: Condiciones legales -->
+      <div class="text-center md:text-left">
+        <h2 class="text-lg font-semibold text-white">Legal</h2>
+        <ul class="mt-2 space-y-2">
+          <li><a href="/terminos" class="hover:text-blue-400 transition">Términos y Condiciones</a></li>
+          <li><a href="/privacidad" class="hover:text-blue-400 transition">Política de Privacidad</a></li>
+          <li><a href="/cookies" class="hover:text-blue-400 transition">Política de Cookies</a></li>
+        </ul>
+      </div>
+
+      <!-- 🔹 Sección 2: Redes sociales -->
+      <div class="flex justify-center space-x-6">
+        <a href="https://facebook.com" target="_blank" class="hover:text-blue-400 transition" aria-label="Ir a Facebook">
+          <FacebookIcon class="w-6 h-6 text-white" />
+        </a>
+        <a href="https://twitter.com" target="_blank" class="hover:text-blue-400 transition" aria-label="Ir a Twitter">
+          <TwitterIcon class="w-6 h-6 text-white" />
+        </a>
+        <a href="https://instagram.com" target="_blank" class="hover:text-blue-400 transition" aria-label="Ir a Instagram">
+          <InstagramIcon class="w-6 h-6 text-white" />
+        </a>
+        <a href="https://github.com" target="_blank" class="hover:text-blue-400 transition" aria-label="Ir a GitHub">
+          <TiktokIcon class="w-6 h-6 text-white" />
+        </a>
+      </div>
+
+      <!-- 🔹 Sección 3: Créditos del desarrollador -->
+      <div class="text-center md:text-right">
+        <p class="text-sm">Desarrollado por <span class="font-semibold text-white">Juan Amieva</span></p>
+        <p class="text-sm">© 2025 Todos los derechos reservados.</p>
+      </div>
+
+    </div>
+  </div>
+</footer>

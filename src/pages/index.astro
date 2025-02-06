@@ -1,15 +1,25 @@
 ---
+
+import Detall from "@components/Detall.astro"
+import Footer from "../components/Footer.astro"
+import MastHead from "../components/MastHead.astro"
 import Register from "../components/register"
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=
+  <meta name="viewport" content="width=device-width
   , initial-scale=1.0">
-  <title>Document</title>
+  <title>Tu sistema - Optimiza tus procesos</title>
+  <meta name="description" content="Descubre cómo Tu Sistema puede ayudarte a optimizar procesos y mejorar la eficiencia de tu negocio con herramientas intuitivas.">
+  <meta name="keywords" content="software, productividad, optimización, negocios">
+  <meta name="robots" content="index, follow">
 </head>
 <body>
-  <Register client:load/>
+  <MastHead/>
+  <Detall/>
+  <Register client:visible/>
+  <Footer/>
 </body>
 </html>
