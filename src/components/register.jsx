@@ -69,7 +69,7 @@ function Formulario() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="w-1/2 py-2 mt-4 bg-light rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-1/2 py-2 mt-4 bg-light text-lg  font-semibold rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Enviar
               </button>
