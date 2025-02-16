@@ -1,0 +1,28 @@
+---
+// Success.astro
+const { title, message, buttonText } = Astro.props;
+---
+
+<div
+  class="masthead bg-secondary bg-center bg-no-repeat bg-scroll relative min-h-screen w-full flex items-center justify-center text-center p-8"
+>
+  <div class="flex items-center justify-center h-screen text-center flex-col">
+    <div class="lg:w-2/3 w-full text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+        ¡Verificación exitosa!
+      </h1>
+    </div>
+    <hr class="mx-auto w-12 h-1 bg-white border-0 mb-6" />
+    <p class="text-white opacity-75 mb-5 md:text-xl">
+      El archivo ha sido enviado a tu correo electrónico. Por favor revisa tu
+      bandeja de entrada (y la carpeta de spam).
+    </p>
+    <a
+      href="/"
+      class="btn btn-primary btn-xl bg-light text-black px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-700 mt-14"
+      
+    >
+      Volver al inicio
+    </a>
+  </div>
+</div>
