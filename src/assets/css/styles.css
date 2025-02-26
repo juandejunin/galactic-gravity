@@ -1,0 +1,12 @@
+/* src/assets/css/styles.css */
+html {
+    -webkit-text-size-adjust: none; /* Desactiva el ajuste */
+    text-size-adjust: none;         /* Para navegadores modernos */
+  }
+  *, *:before, *:after {
+    box-sizing: border-box; /* Reemplaza parte del reset de Tailwind */
+  }
+  body {
+    margin: 0; /* Opcional, si quieres mantener este reset */
+    line-height: 1.5;
+  }

@@ -50,7 +50,7 @@ function Formulario() {
     <section id="formulario" className="min-h-screen w-full flex items-center justify-center p-8 bg-secondary">
       <div className="w-full max-w-md mx-auto mt-10 p-8 bg-primary shadow-lg rounded-lg">
         {mensaje ? (
-          <div className="text-green-500 font-bold">{mensaje}</div>
+          <div className="text-bg-light font-bold">{mensaje}</div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <h1 className="text-2xl text-gray-300 font-semibold text-center">Solicita tu guía</h1>
@@ -89,7 +89,7 @@ function Formulario() {
               />
               <label htmlFor="politicas" className="ml-2 text-sm text-gray-300">
                 Acepto las{" "}
-                <a href="/politicas-de-privacidad" className="text-blue-500 underline">
+                <a href="/privacy-policy" className="text-blue-500 underline">
                   políticas de privacidad
                 </a>
               </label>
