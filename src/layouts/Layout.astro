@@ -1,17 +1,26 @@
-<!doctype html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-		<link rel="stylesheet" href="../assets/css/styles.css" />
-	</head>
-	<body>
-		<slot />
-	</body>
+---
+import "../assets/css/styles.css"; 
+const { 
+  title = "Tu Sistema - Optimiza tus procesos", 
+  description = "Descubre cómo Tu Sistema puede ayudarte a optimizar procesos y mejorar la eficiencia de tu negocio con herramientas intuitivas.",
+  keywords = "software, productividad, optimización, negocios",
+  lang = "es" 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <slot /> 
+  </body>
 </html>
-
-
-
