@@ -4,14 +4,17 @@ import Detall from "@components/Detall.astro";
 import Footer from "../components/Footer.astro";
 import MastHead from "../components/MastHead.astro";
 import Register from "../components/register";
+import { loadEnv } from "vite";
 
-const apiUrl = `${import.meta.env.BACKEND_URL || 'http://localhost:3000'}/api/users/visits/track`;
+const env = loadEnv(process.env.NODE_ENV || "production", process.cwd(), "");
+const apiUrl = `${env.BACKEND_URL || 'https://tusistema.es'}/api/users/visits/track`;
+const registerUrl = `${env.BACKEND_URL || 'https://tusistema.es'}/api/users/register`;
 ---
 
 <Layout>
   <MastHead />
   <Detall />
-  <Register client:visible />
+  <Register apiUrl={registerUrl} client:visible />
   <Footer />
 
   <script define:vars={{ apiUrl }}>

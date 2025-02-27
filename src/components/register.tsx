@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-function Formulario() {
+// Define una interfaz para las props
+interface FormularioProps {
+  apiUrl: string;
+}
+function Formulario({ apiUrl }: FormularioProps) {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [aceptaPoliticas, setAceptaPoliticas] = useState(false);
@@ -8,7 +12,7 @@ function Formulario() {
   const [error, setError] = useState("");
   const [enviando, setEnviando] = useState(false);
 
-  const API_URL = import.meta.env.PUBLIC_API_URL || "http://localhost:3000/api/users/register";
+  
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,7 +27,8 @@ function Formulario() {
     setEnviando(true);
 
     try {
-      const response = await fetch(API_URL, {
+      console.log('Enviando registro a:', apiUrl);
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, email, acepta_politicas: aceptaPoliticas }),
@@ -50,7 +55,7 @@ function Formulario() {
     <section id="formulario" className="min-h-screen w-full flex items-center justify-center p-8 bg-secondary">
       <div className="w-full max-w-md mx-auto mt-10 p-8 bg-primary shadow-lg rounded-lg">
         {mensaje ? (
-          <div className="text-bg-light font-bold">{mensaje}</div>
+          <div className="text-gray-300 font-bold">{mensaje}</div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <h1 className="text-2xl text-gray-300 font-semibold text-center">Solicita tu guía</h1>
