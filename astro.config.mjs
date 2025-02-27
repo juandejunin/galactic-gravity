@@ -22,5 +22,9 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   output: 'static', // Cambiamos a estático
   integrations: [react(), tailwind()],
-  // Eliminamos el adapter porque no necesitamos SSR
+  build: {
+    rollupOptions: {
+      external: ['fsevents'] // Ignora fsevents en el build
+    }
+  }
 });
