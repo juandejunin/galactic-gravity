@@ -24,3 +24,20 @@ El diseño está optimizado para dispositivos móviles, tabletas y escritorios, 
 - **Optimización de rendimiento:**
   - Astro genera páginas estáticas o híbridas (según la configuración), lo que mejora los tiempos de carga y el SEO.
 
+## Pasos para instalar y ejecutar el proyecto
+1. Clona este repositorio:
+```
+git clone https://github.com/juandejunin/galactic-gravity.git
+```
+2. Navega al directorio del proyecto:
+
+
+3. Instala las dependencias:
+
+```
+npm install
+```
+
+4. Inicia el servidor de desarrollo:
+
+5. Abre el navegador y navega a: http://localhost:4321
