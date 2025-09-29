@@ -9,7 +9,6 @@ El diseño está optimizado para dispositivos móviles, tabletas y escritorios, 
 - **Astro:** Framework para construir sitios rápidos y optimizados, utilizado para la estructura principal y el enrutamiento.
 - **Tailwind CSS:** Framework de utilidad para estilos responsivos y personalizables.
 - **React:** Utilizado específicamente para el formulario de captura de leads, aprovechando su reactividad y facilidad de integración.
-- **TypeScript (opcional):** Si usaste TypeScript en el frontend, se puede mencionar aquí.
 - **Node.js:** Entorno necesario para el desarrollo y la instalación de dependencias.
 
 ## Funcionalidades
@@ -39,5 +38,6 @@ npm install
 ```
 
 4. Inicia el servidor de desarrollo:
+
 
 5. Abre el navegador y navega a: http://localhost:4321
